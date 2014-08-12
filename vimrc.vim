@@ -1,5 +1,7 @@
 set nocompatible
 filetype off
+set rtp+=$VimConfigPath
+set rtp+=$VimConfigPath/bundle/Vundle.vim
 " setup indent, tab, etc.
 set smartindent
 set tabstop=4
@@ -27,6 +29,7 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 " Increase search
 set incsearch
 
+set noundofile
 " Save your backups to a less annoying place than the current directory.
 " If you have .vim-backup in the current directory, it'll use that.
 " Otherwise it saves it to ~/.vim/backup or . if all else fails.
@@ -82,6 +85,13 @@ set mouse=a
 " Status line
 set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
 set laststatus=2
+
+" Plugins
+call vundle#begin($VimConfigPath.'/bundle')
+Plugin 'gmarik/Vundle.vim'
+Plugin 'Valloric/YouCompleteMe'
+
+call vundle#end()
 
 filetype plugin indent on
 

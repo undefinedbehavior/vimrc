@@ -1,34 +1,9 @@
 set nocompatible
 filetype off
+
+"""""""""" PATH SETTING """"""""""
 set rtp+=$VimConfigPath
 set rtp+=$VimConfigPath/bundle/Vundle.vim
-" setup indent, tab, etc.
-set smartindent
-set tabstop=4
-set shiftwidth=4
-set expandtab
-set autoindent
-" show number
-set number
-" syntax
-syntax on
-set t_Co=256
-syntax enable
-set hls
-set background=dark
-colorscheme solarized
-" Color column
-set cursorline
-set colorcolumn=80
-" let &colorcolumn=join(range(81,999),",")
-" highlight ColorColumn ctermbg=235 guibg=#2c2d27
-" set history size
-set history=200
-" Clear highlights when flashing screen
-nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
-" Increase search
-set incsearch
-
 set noundofile
 " Save your backups to a less annoying place than the current directory.
 " If you have .vim-backup in the current directory, it'll use that.
@@ -68,7 +43,33 @@ if exists("+undofile")
   set undofile
 endif
 
-" key mapping
+"""""""""" FORMAT """"""""""
+" setup indent, tab, etc.
+set smartindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+" show number
+set number
+" syntax
+syntax on
+set t_Co=256
+syntax enable
+set hls
+set background=dark
+colorscheme solarized
+" Color column
+set cursorline
+set colorcolumn=80
+" let &colorcolumn=join(range(81,999),",")
+" highlight ColorColumn ctermbg=235 guibg=#2c2d27
+" Increase search
+set incsearch
+
+"""""""""" KEY MAPPING """"""""""
+" Clear highlights when flashing screen
+nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 " browse command history
 cnoremap <C-p> <Up>
 cnoremap <C-n> <Down>
@@ -82,16 +83,45 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " set mouse
 set mouse=a
 
-" Status line
-set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
-set laststatus=2
-
-" Plugins
+"""""""""" PLUGINS """"""""""
 call vundle#begin($VimConfigPath.'/bundle')
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
-
+Plugin 'bling/vim-airline'
 call vundle#end()
 
+" Airline Setting
+" Deprecated status line
+"set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
+set laststatus=2
+set ambiwidth=double
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#fnamemod=':t'
+let g:airline_detect_paste=1
+let g:airline_detect_modified=1
+" unicode symbols
+if !exists('g:airline_symbols')
+    let g:airline_symbols = {}
+endif
+" powerline symbols
+let g:airline#extensions#tabline#left_sep = ''
+let g:airline#extensions#tabline#left_alt_sep = ''
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline_symbols.branch = ''
+let g:airline_symbols.readonly = ''
+let g:airline_symbols.linenr = ''
+let g:airline_symbols.whitespace = 'Ξ'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.branch = '⎇'
+" reduce the lag between the switch of mode
+set timeoutlen=50
+
+
+"""""""""" OTHER """"""""""
+" set history size
+set history=200
 filetype plugin indent on
 

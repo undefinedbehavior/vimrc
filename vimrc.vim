@@ -9,7 +9,7 @@ set noundofile
 " If you have .vim-backup in the current directory, it'll use that.
 " Otherwise it saves it to ~/.vim/backup or . if all else fails.
 if isdirectory($HOME . '/.vim/backup') == 0
-  :silent !mkdir -p ~/.vim/backup 
+  :silent !mkdir -p ~/.vim/backup
 endif
 set backupdir-=.
 set backupdir+=.
@@ -37,7 +37,7 @@ if exists("+undofile")
   " :help undo-persistence
   " This is only present in 7.3+
   if isdirectory($HOME . '/.vim/undo') == 0
-    :silent !mkdir -p ~/.vim/undo 
+    :silent !mkdir -p ~/.vim/undo
   endif
   set undodir+=~/.vim/undo//
   set undofile
@@ -88,6 +88,7 @@ call vundle#begin($VimConfigPath.'/bundle')
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'bling/vim-airline'
+Plugin 'edkolev/tmuxline.vim'
 call vundle#end()
 
 " Airline Setting
@@ -95,10 +96,10 @@ call vundle#end()
 "set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
 set laststatus=2
 set ambiwidth=double
-let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#fnamemod=':t'
-let g:airline_detect_paste=1
-let g:airline_detect_modified=1
+" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_detect_paste = 1
+let g:airline_detect_modified = 1
 " unicode symbols
 if !exists('g:airline_symbols')
     let g:airline_symbols = {}
@@ -118,6 +119,14 @@ let g:airline_symbols.paste = 'ρ'
 let g:airline_symbols.branch = '⎇'
 " reduce the lag between the switch of mode
 set timeoutlen=50
+" tmuxline
+let g:tmuxline_preset = {
+    \'a'    :   '#S',
+    \'b'    :   '#W',
+    \'win'  :   '#I #W',
+    \'cwin' :   '#I #W #F',
+    \'y'    :   ['%R', '%m/%d', '%a'],
+    \'z'    :   '#H'}
 
 
 """""""""" OTHER """"""""""

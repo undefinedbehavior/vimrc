@@ -96,7 +96,7 @@ call vundle#end()
 "set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
 set laststatus=2
 set ambiwidth=double
-" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline_detect_paste = 1
 let g:airline_detect_modified = 1

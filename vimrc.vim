@@ -67,7 +67,9 @@ set colorcolumn=80
 " Increase search
 set incsearch
 
-"""""""""" KEY MAPPING """"""""""
+"""""""""" Other MAPPING """"""""""
+" Remap leader
+let mapleader=","
 " Clear highlights when flashing screen
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 " browse command history
@@ -89,6 +91,11 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
 Plugin 'bling/vim-airline'
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'vim-scripts/listmaps.vim'
+Plugin 'Shougo/vimproc.vim'
+Plugin 'Shougo/neomru.vim'
+Plugin 'Shougo/unite.vim'
+Plugin 'terryma/vim-multiple-cursors'
 call vundle#end()
 
 " Airline Setting
@@ -96,31 +103,31 @@ call vundle#end()
 "set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
 set laststatus=2
 set ambiwidth=double
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_detect_paste = 1
-let g:airline_detect_modified = 1
+let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#fnamemod=':t'
+let g:airline_detect_paste=1
+let g:airline_detect_modified=1
 " unicode symbols
 if !exists('g:airline_symbols')
-    let g:airline_symbols = {}
+    let g:airline_symbols={}
 endif
 " powerline symbols
-let g:airline#extensions#tabline#left_sep = ''
-let g:airline#extensions#tabline#left_alt_sep = ''
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline_symbols.branch = ''
-let g:airline_symbols.readonly = ''
-let g:airline_symbols.linenr = ''
-let g:airline_symbols.whitespace = 'Ξ'
-let g:airline_symbols.paste = 'ρ'
-let g:airline_symbols.branch = '⎇'
+let g:airline#extensions#tabline#left_sep=''
+let g:airline#extensions#tabline#left_alt_sep=''
+let g:airline_left_sep=''
+let g:airline_left_alt_sep=''
+let g:airline_right_sep=''
+let g:airline_right_alt_sep=''
+let g:airline_symbols.branch=''
+let g:airline_symbols.readonly=''
+let g:airline_symbols.linenr=''
+let g:airline_symbols.whitespace='Ξ'
+let g:airline_symbols.paste='ρ'
+let g:airline_symbols.branch='⎇'
 " reduce the lag between the switch of mode
-set timeoutlen=50
+set timeoutlen=222
 " tmuxline
-let g:tmuxline_preset = {
+let g:tmuxline_preset={
     \'a'    :   '#S',
     \'b'    :   '#W',
     \'win'  :   '#I #W',
@@ -128,9 +135,18 @@ let g:tmuxline_preset = {
     \'y'    :   ['%R', '%m/%d', '%a'],
     \'z'    :   '#H'}
 
+" Unite Setting
+nnoremap <silent> <leader>m :<C-u>Unite -buffer-name=recent -winheight=10 file_mru<CR>
+nnoremap <leader>b :<C-u>Unite -buffer-name=buffers -winheight=10 buffer<CR>
+" file search
+nnoremap <leader>f :<C-u>Unite -start-insert -buffer-name=files -winheight=10 file_rec/async<CR>
+nnoremap <leader>g :<C-u>Unite -auto-preview grep:.<CR>
 
 """""""""" OTHER """"""""""
-" set history size
-set history=200
+" Set history/undo size
+set history=1000
+set undolevels=1000
+" No need to save when switching buffer
+set hidden
 filetype plugin indent on
 

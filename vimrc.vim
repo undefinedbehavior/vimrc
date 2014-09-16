@@ -50,6 +50,7 @@ set tabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
+set cinoptions=(0
 " show number
 set number
 " syntax
@@ -84,6 +85,13 @@ nnoremap <silent> ]B :blast<CR>
 cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 " set mouse
 set mouse=a
+" let search result in the middle of screen
+:nnoremap n nzz
+:nnoremap N Nzz
+:nnoremap * *zz
+:nnoremap # #zz
+:nnoremap g* g*zz
+:nnoremap g# g#zz
 
 """""""""" PLUGINS """"""""""
 call vundle#begin($VimConfigPath.'/bundle')
@@ -97,8 +105,11 @@ Plugin 'Shougo/neomru.vim'
 Plugin 'Shougo/unite.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdtree'
+Plugin 'tpope/vim-fugitive'
 call vundle#end()
 
+" YCM Setting
+let g:ycm_confirm_extra_conf=0
 " Airline Setting
 " Deprecated status line
 "set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
@@ -126,7 +137,7 @@ let g:airline_symbols.whitespace='Ξ'
 let g:airline_symbols.paste='ρ'
 let g:airline_symbols.branch='⎇'
 " reduce the lag between the switch of mode
-set timeoutlen=222
+set timeoutlen=666
 " tmuxline
 let g:tmuxline_preset={
     \'a'    :   '#S',
@@ -137,17 +148,34 @@ let g:tmuxline_preset={
     \'z'    :   '#H'}
 
 " Unite Setting
+" let g:unite_source_grep_command='grep -i '
 nnoremap <silent> <leader>m :<C-u>Unite -buffer-name=recent -winheight=10 file_mru<CR>
 nnoremap <leader>b :<C-u>Unite -buffer-name=buffers -winheight=10 buffer<CR>
 " file search
-nnoremap <leader>f :<C-u>Unite -start-insert -buffer-name=files -winheight=10 file_rec/async<CR>
+nnoremap <leader>f :<C-u>Unite -start-insert -buffer-name=files -winheight=10 file_rec/async:.<CR>
 nnoremap <leader>g :<C-u>Unite -auto-preview grep:.<CR>
+nnoremap <leader>G :<C-u>Unite -auto-preview grep<CR>
 
 """""""""" OTHER """"""""""
+" Auto change PWD
+autocmd BufEnter * silent! lcd %:p:h
+" Leave some context at the end
+set scrolloff=10
 " Set history/undo size
 set history=1000
 set undolevels=1000
 " No need to save when switching buffer
 set hidden
 filetype plugin indent on
+" remove tailing whitespace
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+function! TrimWhiteSpace()
+        %s/\s\+$//e
+endfunction
+nnoremap <leader>t :call TrimWhiteSpace()
 

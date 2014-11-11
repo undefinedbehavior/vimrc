@@ -179,3 +179,4 @@ function! TrimWhiteSpace()
 endfunction
 nnoremap <leader>t :call TrimWhiteSpace()
 
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown

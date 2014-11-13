@@ -1,0 +1,14 @@
+[user]
+	name = Yirui Zhang
+	email = yirui@fb.com
+[merge]
+	conflictstyle = diff3
+[color]
+	ui = auto
+[core]
+	editor = vim
+[grep]
+	lineNumber = true
+[alias]
+	g = grep --break --heading --line-number
+    lga=log --graph --pretty=oneline --abbrev-commit --decorate --all

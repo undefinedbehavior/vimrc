@@ -1,6 +1,6 @@
 source $CONFIG/zsh-git-prompt/zshrc.sh
 export GIT_PROMPT_EXECUTABLE="haskell"
-PROMPT='%B%~%b$(git_super_status) %# '
+PROMPT='%B%2~%b$(git_super_status) %# '
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 HISTSIZE=130000 SAVEHIST=130000

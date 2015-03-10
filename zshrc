@@ -1,6 +1,7 @@
-source $CONFIG/zsh-git-prompt/zshrc.sh
-export GIT_PROMPT_EXECUTABLE="haskell"
-PROMPT='%B%2~%b$(git_super_status) %# '
+#source $CONFIG/zsh-git-prompt/zshrc.sh
+#export GIT_PROMPT_EXECUTABLE="haskell"
+#PROMPT='%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)%B%2~%b$(git_super_status) %# '
+PROMPT='%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)%B %C%b %# '
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
 HISTSIZE=130000 SAVEHIST=130000

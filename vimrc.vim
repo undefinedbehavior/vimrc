@@ -69,6 +69,8 @@ set colorcolumn=80
 set incsearch
 
 """""""""" Other MAPPING """"""""""
+" Replace `wq` with `w`
+cabbrev wq w
 " Remap leader
 let mapleader=","
 " Clear highlights when flashing screen
@@ -154,7 +156,7 @@ nnoremap <leader>b :<C-u>Unite -buffer-name=buffers -winheight=10 buffer<CR>
 " file search
 nnoremap <leader>f :<C-u>Unite -start-insert -buffer-name=files -winheight=10 file_rec/async:.<CR>
 nnoremap <leader>g :<C-u>Unite -auto-preview grep:.<CR>
-nnoremap <leader>G :<C-u>Unite -auto-preview grep<CR>
+nnoremap <leader>G :<C-u>Unite -auto-preview git grep<CR>
 
 """""""""" OTHER """"""""""
 " Auto change PWD

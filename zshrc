@@ -12,3 +12,4 @@ alias findc='find . -iname'
 alias findcf='find . -type f -iname'
 alias findcd='find . -type d -iname'
 
+set -o ignoreeof

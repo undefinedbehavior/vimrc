@@ -62,7 +62,7 @@ set background=dark
 colorscheme solarized
 " Color column
 set cursorline
-set colorcolumn=80
+set colorcolumn=80,120
 " let &colorcolumn=join(range(81,999),",")
 " highlight ColorColumn ctermbg=235 guibg=#2c2d27
 " Increase search
@@ -108,6 +108,8 @@ Plugin 'Shougo/unite.vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
+Plugin 'junegunn/fzf'
+Plugin 'rust-lang/rust.vim'
 call vundle#end()
 
 " YCM Setting
@@ -182,3 +184,4 @@ endfunction
 nnoremap <leader>t :call TrimWhiteSpace()
 
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+autocmd BufRead,BufNewFile *.rs set filetype=rust

@@ -10,5 +10,5 @@
 [grep]
 	lineNumber = true
 [alias]
-	g = grep --break --heading --line-number
+	g = grep --break --heading --line-number -i
     lga=log --graph --pretty=oneline --abbrev-commit --decorate --all

@@ -59,7 +59,9 @@ set t_Co=256
 syntax enable
 set hls
 set background=dark
+let g:solarized_termtrans=1
 colorscheme solarized
+set spell spelllang=en_us
 " Color column
 set cursorline
 set colorcolumn=80,120
@@ -152,13 +154,8 @@ let g:tmuxline_preset={
     \'z'    :   '#H'}
 
 " Unite Setting
-let g:unite_source_grep_command='ag'
 nnoremap <silent> <leader>m :<C-u>Unite -buffer-name=recent -winheight=10 file_mru<CR>
 nnoremap <leader>b :<C-u>Unite -buffer-name=buffers -winheight=10 buffer<CR>
-" file search
-"nnoremap <leader>f :<C-u>Unite -start-insert -buffer-name=files -winheight=10 file_rec/async:.<CR>
-nnoremap <leader>g :<C-u>Unite -auto-preview grep:
-"nnoremap <leader>G :<C-u>Unite -auto-preview git grep<CR>
 
 " FZF Setting
 nnoremap <leader>f :<C-u>FZF 

@@ -8,9 +8,10 @@ VIMRC by Yirui
 
 # Plugin Special Install
 > 0. in your $HOME/.vimrc, define var VimConfigPath to this vimrc folder and source vimrc.vim under vimrc
-> 1. cd YCM and exe install.sh
-> 2. cd vimproc and exe make
-> 3. cd zsh-git-prompt and type `cabal build`
+> 1. `git submodule update --init --recursive`
+> 2. cd YCM and exe install.sh
+> 3. cd vimproc and exe make
+> 4. cd zsh-git-prompt and type `cabal build`
 
 # TODO
 + neobundle to make plugin install automatically

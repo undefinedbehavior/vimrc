@@ -101,7 +101,8 @@ set mouse=a
 call vundle#begin($VimConfigPath.'/bundle')
 Plugin 'gmarik/Vundle.vim'
 Plugin 'Valloric/YouCompleteMe'
-Plugin 'bling/vim-airline'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'vim-scripts/listmaps.vim'
 Plugin 'Shougo/vimproc.vim'
@@ -118,11 +119,15 @@ call vundle#end()
 let g:ycm_confirm_extra_conf=0
 " Airline Setting
 " Deprecated status line
-"set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
+" set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
 set laststatus=2
 set ambiwidth=double
 let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#fnamemod=':t'
+let g:airline#extensions#tabline#buffer_nr_show=0
+let g:airline#extensions#tabline#fnamecollapse=1
+let g:airline#extensions#tabline#fnametruncate =20
+let g:airline#extensions#tabline#fnamemod=':p:~'
+let g:airline#extensions#tabline#formatter='unique_tail'
 let g:airline_detect_paste=1
 let g:airline_detect_modified=1
 " unicode symbols
@@ -130,12 +135,18 @@ if !exists('g:airline_symbols')
     let g:airline_symbols={}
 endif
 " powerline symbols
-let g:airline#extensions#tabline#left_sep=''
-let g:airline#extensions#tabline#left_alt_sep=''
-let g:airline_left_sep=''
-let g:airline_left_alt_sep=''
-let g:airline_right_sep=''
-let g:airline_right_alt_sep=''
+" let g:airline#extensions#tabline#left_sep=''
+" let g:airline#extensions#tabline#left_alt_sep=''
+let g:airline#extensions#tabline#left_sep=''
+let g:airline#extensions#tabline#left_alt_sep='|'
+" let g:airline_left_sep=''
+" let g:airline_left_alt_sep=''
+" let g:airline_right_sep=''
+" let g:airline_right_alt_sep=''
+let g:airline_left_sep=''
+let g:airline_left_alt_sep='|'
+let g:airline_right_sep=''
+let g:airline_right_alt_sep=' '
 let g:airline_symbols.branch=''
 let g:airline_symbols.readonly=''
 let g:airline_symbols.linenr=''

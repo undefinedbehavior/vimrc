@@ -124,6 +124,7 @@ set laststatus=2
 set ambiwidth=double
 let g:airline#extensions#tabline#enabled=1
 let g:airline#extensions#tabline#buffer_nr_show=0
+let g:airline#extensions#tabline#show_tab_nr=0
 let g:airline#extensions#tabline#fnamecollapse=1
 let g:airline#extensions#tabline#fnametruncate =20
 let g:airline#extensions#tabline#fnamemod=':p:~'

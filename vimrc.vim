@@ -114,6 +114,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/fzf'
 Plugin 'rust-lang/rust.vim'
+Plugin 'ryanss/vim-hackernews'
 call vundle#end()
 
 " YCM Setting

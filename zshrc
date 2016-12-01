@@ -4,6 +4,9 @@
 PROMPT='%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)%B %C%b %# '
 [[ -s `brew --prefix`/etc/autojump.sh ]] && . `brew --prefix`/etc/autojump.sh
 
+# key bindings
+bindkey \^U backward-kill-line
+
 HISTSIZE=130000 SAVEHIST=130000
 PATH="/Users/yirui/bin:$PATH"
 PATH="/Users/yirui/devtools/buck/bin/:$PATH"

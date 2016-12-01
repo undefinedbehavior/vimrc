@@ -249,7 +249,7 @@ nnoremap <leader>a :<C-u>Ag <C-r><C-w><CR>
 
 """""""""" OTHER """"""""""
 " Auto change PWD
-autocmd BufEnter * silent! lcd %:p:h
+" autocmd BufEnter * silent! lcd %:p:h
 " Leave some context at the end
 set scrolloff=10
 " Set history/undo size

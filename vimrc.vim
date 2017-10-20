@@ -228,8 +228,6 @@ command! -nargs=* Ag call fzf#run({
 nnoremap <leader>f :<C-u>FZF 
 " FZF in current folder
 nnoremap <silent> <C-i> :<C-u>FZF<CR>
-" Fancy git grep piped to FZF
-nnoremap <silent> <C-\> :<C-u>GG <C-r><C-w><CR>
 " Fancy ag grep piped to FZF
 nnoremap <leader>a :<C-u>Ag <C-r><C-w><CR>
 

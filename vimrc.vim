@@ -112,7 +112,22 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/fzf'
 Plugin 'rust-lang/rust.vim'
 Plugin 'ryanss/vim-hackernews'
+Plugin 'mileszs/ack.vim'
 call vundle#end()
+
+" ack.vim Setting
+" block output to shell as the Ack will leak the searching paths to shell
+set shellpipe=>
+" Use ag for ack,vim if present
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+" Avoid jumping to first result after search
+cnoreabbrev Ack Ack!
+" Reverse o and go shortcuts
+let g:ack_mappings = {
+    \ "o": "<CR><C-W>j",
+    \ "go": "<CR>" }
 
 " YCM Setting
 let g:ycm_confirm_extra_conf=0
@@ -165,43 +180,6 @@ let g:tmuxline_preset={
     \'z'    :   '#H'}
 
 " FZF Setting
-function! s:gg_to_qf(line)
-  let parts = split(a:line, ':')
-  return {'filename': parts[0], 'lnum': parts[1], 'col': parts[2],
-        \ 'text': join(parts[3:], ':')}
-endfunction
-
-function! s:gg_handler(lines)
-  if len(a:lines) < 2 | return | endif
-
-  let cmd = get({'ctrl-x': 'split',
-               \ 'ctrl-v': 'vertical split',
-               \ 'ctrl-t': 'tabe'}, a:lines[0], 'e')
-  let list = map(a:lines[1:], 's:gg_to_qf(v:val)')
-
-  let first = list[0]
-  execute cmd escape(first.filename, ' %#\')
-  execute first.lnum
-  execute 'normal!' first.col.'|zz'
-
-  if len(list) > 1
-    call setqflist(list)
-    copen
-    wincmd p
-  endif
-endfunction
-
-command! -nargs=* GG call fzf#run({
-\ 'source':  printf('%s "%s"',
-\                   ($VimConfigPath . '/scripts/git_grep_column.sh'),
-\                   escape(empty(<q-args>) ? '^(?=.)' : <q-args>, '"\')),
-\ 'sink*':    function('<sid>gg_handler'),
-\ 'options': '--ansi --expect=ctrl-t,ctrl-v,ctrl-x --delimiter : --nth 4.. '.
-\            '--multi --bind=ctrl-a:select-all,ctrl-d:deselect-all '.
-\            '--color hl:68,hl+:110',
-\ 'down':    '50%'
-\ })
-
 function! s:ag_to_qf(line)
   let parts = split(a:line, ':')
   return {'filename': parts[0], 'lnum': parts[1], 'col': parts[2],

@@ -186,6 +186,13 @@ let g:tmuxline_preset={
     \'cwin' :   '#I #W #F',
     \'y'    :   ['%R', '%m/%d', '%a'],
     \'z'    :   '#H'}
+let g:tmuxline_separators = {
+    \ 'left' : '',
+    \ 'left_alt': '>',
+    \ 'right' : '',
+    \ 'right_alt' : '<',
+    \ 'space' : ' '}
+
 
 " FZF Setting
 function! s:ag_to_qf(line)

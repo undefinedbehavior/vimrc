@@ -12,9 +12,11 @@ VIMRC by Yirui
 > 2. cd YCM and exe install.sh
 > 3. cd vimproc and exe make
 > 4. cd zsh-git-prompt and type `cabal build`
+> 5. Create `~/vim_projects` folder in order to save the vim session.
+> 6. [Install tmux plugin manager](https://github.com/tmux-plugins/tmux-resurrect#installation-with-tmux-plugin-manager-recommended)
+> 7. Install tmux plugins as what described above.
 
 # TODO
-+ neobundle to make plugin install automatically
-+ taglist
 + YCM adv setting
++ script to do this README
 

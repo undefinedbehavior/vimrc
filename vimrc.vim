@@ -113,6 +113,7 @@ Plugin 'junegunn/fzf'
 Plugin 'rust-lang/rust.vim'
 Plugin 'ryanss/vim-hackernews'
 Plugin 'mileszs/ack.vim'
+Plugin 'tpope/vim-obsession'
 call vundle#end()
 
 " ack.vim Setting

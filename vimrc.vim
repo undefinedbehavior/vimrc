@@ -110,10 +110,14 @@ Plugin 'terryma/vim-multiple-cursors'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-fugitive'
 Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'rust-lang/rust.vim'
 Plugin 'ryanss/vim-hackernews'
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-obsession'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-commentary'
 call vundle#end()
 
 " ack.vim Setting
@@ -238,6 +242,9 @@ nnoremap <leader>f :<C-u>FZF
 nnoremap <silent> <C-i> :<C-u>FZF<CR>
 " Fancy ag grep piped to FZF
 nnoremap <leader>a :<C-u>Ag <C-r><C-w><CR>
+nnoremap <leader>b :<C-u>Buffers<CR>
+
+let g:fzf_buffers_jump = 1
 
 """""""""" OTHER """"""""""
 " Auto change PWD

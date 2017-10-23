@@ -118,6 +118,7 @@ Plugin 'tpope/vim-obsession'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
+Plugin 'qpkorr/vim-bufkill'
 call vundle#end()
 
 " ack.vim Setting
@@ -242,8 +243,9 @@ nnoremap <leader>f :<C-u>FZF
 nnoremap <silent> <C-i> :<C-u>FZF<CR>
 " Fancy ag grep piped to FZF
 nnoremap <leader>a :<C-u>Ag <C-r><C-w><CR>
+" Map :Buffers to ';'
 nnoremap ; :<C-u>Buffers<CR>
-
+" Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
 
 """""""""" OTHER """"""""""

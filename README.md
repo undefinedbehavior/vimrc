@@ -15,6 +15,7 @@ VIMRC by Yirui
 > 5. Create `~/vim_projects` folder in order to save the vim session.
 > 6. [Install tmux plugin manager](https://github.com/tmux-plugins/tmux-resurrect#installation-with-tmux-plugin-manager-recommended)
 > 7. Install tmux plugins as what described above.
+> 8. `brew install reattach-to-user-namespace`
 
 # TODO
 + YCM adv setting

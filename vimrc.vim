@@ -242,7 +242,7 @@ nnoremap <leader>f :<C-u>FZF
 nnoremap <silent> <C-i> :<C-u>FZF<CR>
 " Fancy ag grep piped to FZF
 nnoremap <leader>a :<C-u>Ag <C-r><C-w><CR>
-nnoremap <leader>b :<C-u>Buffers<CR>
+nnoremap ; :<C-u>Buffers<CR>
 
 let g:fzf_buffers_jump = 1
 

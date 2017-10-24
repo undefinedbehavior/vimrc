@@ -67,8 +67,6 @@ set cursorline
 set colorcolumn=80,120
 " let &colorcolumn=join(range(81,999),",")
 " highlight ColorColumn ctermbg=235 guibg=#2c2d27
-" Increase search
-set incsearch
 
 """""""""" Other MAPPING """"""""""
 " Replace `wq` with `w`
@@ -231,6 +229,12 @@ nnoremap ; :<C-u>Buffers<CR>
 let g:fzf_buffers_jump = 1
 
 """""""""" OTHER """"""""""
+" Search
+" Smart search
+set ignorecase
+set smartcase
+" Increase search
+set incsearch
 " Auto change PWD
 " autocmd BufEnter * silent! lcd %:p:h
 " Leave some context at the end

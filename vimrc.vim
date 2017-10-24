@@ -146,8 +146,6 @@ let g:ycm_warning_symbol = '!'
 let g:ycm_server_keep_logfiles = 0
 let g:ycm_server_log_level = 'debug'
 " Airline Setting
-" Deprecated status line
-" set statusline=[%n]\ %<%.99f\ %h%w%m%r%{exists('*CapsLockStatusline')?CapsLockStatusline():''}%y%=%-16(\ %l,%c-%v\ %)%P
 set laststatus=2
 set ambiwidth=double
 let g:airline#extensions#tabline#enabled=1
@@ -164,24 +162,8 @@ if !exists('g:airline_symbols')
     let g:airline_symbols={}
 endif
 " powerline symbols
-" let g:airline#extensions#tabline#left_sep=''
-" let g:airline#extensions#tabline#left_alt_sep=''
 let g:airline#extensions#tabline#left_sep=''
 let g:airline#extensions#tabline#left_alt_sep='|'
-" let g:airline_left_sep=''
-" let g:airline_left_alt_sep=''
-" let g:airline_right_sep=''
-" let g:airline_right_alt_sep=''
-let g:airline_left_sep=''
-let g:airline_left_alt_sep='|'
-let g:airline_right_sep=''
-let g:airline_right_alt_sep=' '
-let g:airline_symbols.branch=''
-let g:airline_symbols.readonly=''
-let g:airline_symbols.linenr=''
-let g:airline_symbols.whitespace='Ξ'
-let g:airline_symbols.paste='ρ'
-let g:airline_symbols.branch='⎇'
 " reduce the lag between the switch of mode
 set timeoutlen=666
 " tmuxline
@@ -194,9 +176,9 @@ let g:tmuxline_preset={
     \'z'    :   '#H'}
 let g:tmuxline_separators = {
     \ 'left' : '',
-    \ 'left_alt': '>',
+    \ 'left_alt': '|',
     \ 'right' : '',
-    \ 'right_alt' : '<',
+    \ 'right_alt' : '|',
     \ 'space' : ' '}
 
 

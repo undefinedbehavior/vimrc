@@ -117,6 +117,7 @@ Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-commentary'
 Plugin 'qpkorr/vim-bufkill'
+Plugin 'airblade/vim-gitgutter'
 call vundle#end()
 
 " ack.vim Setting
@@ -227,6 +228,12 @@ nnoremap <leader>a :<C-u>Ag <C-r><C-w><CR>
 nnoremap <leader>c :<C-u>Buffers<CR>
 " Jump to the existing window if possible
 let g:fzf_buffers_jump = 1
+
+" vim-gitgutter
+let g:gitgutter_sign_added = '∙'
+let g:gitgutter_sign_modified = '∙'
+let g:gitgutter_sign_removed = '∙'
+let g:gitgutter_sign_modified_removed = '∙'
 
 """""""""" OTHER """"""""""
 " Search

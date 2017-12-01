@@ -72,7 +72,7 @@ set colorcolumn=80,120
 " Replace `wq` with `w`
 cabbrev wq w
 " Example http://vim.wikia.com/wiki/Replace_a_builtin_command_using_cabbrev
-cabbrev x <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'w\|bd' : 'x')<CR>
+" cabbrev x <c-r>=(getcmdtype()==':' && getcmdpos()==1 ? 'w\|bd' : 'x')<CR>
 " Remap leader
 let mapleader=","
 " Clear highlights when flashing screen

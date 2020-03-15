@@ -6,9 +6,6 @@ PROMPT='%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ %s)%B %C%b %# '
 
 # key bindings
 bindkey \^U backward-kill-line
-# This is used to override the fzf key binding, the old fashion is better as
-# the fzf will truncate the command.
-bindkey '^R' history-incremental-search-backward
 
 HISTSIZE=130000 SAVEHIST=130000
 PATH="/Users/yirui/bin:$PATH"
